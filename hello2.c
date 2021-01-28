@@ -1,7 +1,7 @@
 // Report
 //little endian
 //gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
-//Uubuntu 18.04
+//Ubuntu 18.04
 
 #include <stdio.h>
 //functions prototype declearation
@@ -37,7 +37,7 @@ int main()
         //check global address & endian
         pc=(char *)&gVar;
         gVar=0x12345678;
-        for(i=0;i<sizeof(B);i++)
+        for(i=0;i<sizeof(gVar);i++)
         {
                printf("gVar @ %p:%2.2x\n",pc+i,(unsigned char)*(pc+i));
         }
@@ -72,71 +72,73 @@ void checkShift()
 {
 	unsigned uBig=0x00123456;
 	int varBig=(0x00123456>>32);
+        printf("varBig1 : %x\n",varBig);
 	
 	//signed shift constant  by compiler
 	varBig=(0x87123456 >>32);
 	//code4output varBig result
-	printf("varBig1 %x\n",varBig);
+	printf("varBig2 : %x\n",varBig);
 	
 	varBig=(0x87123456 >>40);
 	//code4output varBig result
-        printf("varBig2 %x\n",varBig);
+        printf("varBig3 : %x\n",varBig);
 	
 
 	varBig=(0x87123456 <<32);
 	//code4output varBig result
-        printf("varBig3 %x\n",varBig);
+        printf("varBig4 : %x\n",varBig);
 
 	varBig=(0x87123456 <<40);
 	//cod4output varBig result
-        printf("varBig3 %x\n",varBig);
+        printf("varBig5 : %x\n",varBig);
 	
 	varBig=(0x87123456);
 	varBig <<=32;
 	//code4output varBig result
-        printf("varBig4 %x\n",varBig);
+        printf("varBig6 : %x\n",varBig);
 	
         //varable shift by CPU
 	varBig=(0x87123456);
 	varBig <<=40;
 	//code4output varBig result
-        printf("varBig5 %x\n",varBig);
+        printf("varBig7 : %x\n",varBig);
 
 	varBig=(0x87123456);
 	varBig >>=32;
 	//code4output varBig result
-        printf("varBig6 %x\n",varBig);
+        printf("varBig8 : %x\n",varBig);
 	
 
 	varBig=(0x87123456);
 	varBig >>=40;
 	//code4output varBig result
-        printf("varBig7 %x\n",varBig);
+        printf("varBig9 : %x\n",varBig);
 	
 	//unsigned shift by variable
         uBig=0x87654321;
 	uBig <<=40;
 	//code4output uBig result
-        printf("varBig8 %x\n",varBig);
+        printf("uBig1 : %x\n",uBig);
 	
         uBig=0x87654321;
 	uBig <<=32;
 	//code output uBig result
-        printf("varBig9 %x\n",varBig);
+        printf("uBig2 : %x\n",uBig);
 
 	//unsigned shift by variable
         uBig=0x87654321;
 	uBig >>=40;
 	//code4output uBig result
-        printf("varBig10 %x\n",varBig);
+        printf("uBig3 : %08x\n",uBig);
 	
         uBig=0x87654321;
 	uBig >>=32;
 	//code output uBig result
-        printf("varBig11 %x\n",varBig);
+        printf("uBig4 : %x\n",uBig);
 
 
 	unsigned int varBig2=(0x123456 << 40);//compiler =>0
+         printf("varBig : %x\n",varBig2);
 
 }
 
