@@ -111,4 +111,4 @@ for (first = 0, last = cnt-1; first < = last; first++,last--)
 *table[2]=*table[2]^*table[2];//*table[2]=0
 ```
 
-因此输出的结果中table[2]=0，讲终止条件改为first<last即可。
+因此输出的结果中table[2]=0，将终止条件改为first<last即可。
